@@ -1,0 +1,6 @@
+
+streamlit
+pandas
+requests
+langchain==1.4.8
+langchain-google-genai
