@@ -374,8 +374,13 @@ if st.button("Generate Travel Plan"):
             ]
         })
 
-    final_response = response[
-        "messages"
-    ][-1].content
+    final_response = response["messages"][-1].content
+
+    if isinstance(final_response, list):
+       final_response = "".join(
+          item["text"]
+          for item in final_response
+          if isinstance(item, dict) and "text" in item
+       )
 
     st.markdown(final_response)
